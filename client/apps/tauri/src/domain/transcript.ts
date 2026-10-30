@@ -114,13 +114,21 @@ export function createTranscribeAudioCommand({
   const prefersParakeet = requestedModelPath.includes("fluidaudio/parakeet-tdt-0.6b-v3");
   const qwenAsrModelId = qwenAsrModelIdForPath(requestedModelPath);
   const language = request.whisperLanguage ?? request.languages?.[0] ?? "en";
+  // "auto" lets the trusted side prefer Parakeet on Apple Silicon, so an
+  // explicitly selected Whisper model must opt out to actually be used.
+  const enginePreference: TranscribeAudioCommand["enginePreference"] =
+    qwenAsrModelId
+      ? "qwen3-asr"
+      : request.whisperModelPath && !prefersParakeet
+        ? "whisper"
+        : "auto";
 
   return {
     protocolVersion: helperProtocolVersion,
     command: "transcribe_audio",
     jobId: createTranscriptJobId(request.video.id, "stt"),
     audioPath,
-    enginePreference: qwenAsrModelId ? "qwen3-asr" : "auto",
+    enginePreference,
     ...(prefersParakeet ? { modelId: "parakeet-tdt-0.6b-v3" } : {}),
     ...(qwenAsrModelId ? { modelId: qwenAsrModelId } : {}),
     modelPath: prefersParakeet ? "models/ggml-small.bin" : requestedModelPath,

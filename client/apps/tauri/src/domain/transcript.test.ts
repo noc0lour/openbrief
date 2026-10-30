@@ -71,11 +71,36 @@ describe("transcript domain", () => {
     expect(stt).toMatchObject({
       command: "transcribe_audio",
       audioPath: "videos/video-1/audio/Design-Review-audio.wav",
-      enginePreference: "auto",
+      enginePreference: "whisper",
       modelPath: "models/tiny.bin",
       language: "ko",
       outputPath: "videos/video-1/transcript/transcript.json",
     });
+  });
+
+  it("forces Whisper for a selected Whisper model instead of auto-routing to Parakeet", () => {
+    const stt = createTranscribeAudioCommand({
+      request: {
+        video,
+        whisperModelPath: "models/ggml-large-v3-turbo-q5_0.bin",
+      },
+      audioPath: "videos/video-1/audio/Design-Review-audio.wav",
+    });
+
+    expect(stt).toMatchObject({
+      enginePreference: "whisper",
+      modelPath: "models/ggml-large-v3-turbo-q5_0.bin",
+    });
+    expect(stt).not.toHaveProperty("modelId");
+  });
+
+  it("keeps auto routing when no STT model was selected", () => {
+    const stt = createTranscribeAudioCommand({
+      request: { video },
+      audioPath: "videos/video-1/audio/Design-Review-audio.wav",
+    });
+
+    expect(stt.enginePreference).toBe("auto");
   });
 
   it("uses Parakeet v3 as an auto STT preference with Whisper fallback path", () => {
