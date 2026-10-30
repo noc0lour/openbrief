@@ -678,6 +678,7 @@ export const ja_jp = {
   "setup.compatibility.continueAnyway": "とにかく続けてください",
   "setup.provider.provider": "プロバイダー",
   "setup.provider.model": "モデル",
+  "setup.provider.refreshModels": "モデル一覧を更新",
   "setup.provider.chatgptSubscriptionDescription": "信頼できる OAuth サポートが有効になっている場合は、ChatGPT サブスクリプションを使用してください。",
   "setup.provider.manualApiKeyDescription": "プロバイダー API キーを信頼できるアプリ資格情報ストアに保存します。",
   "setup.provider.apiKey": "APIキー",

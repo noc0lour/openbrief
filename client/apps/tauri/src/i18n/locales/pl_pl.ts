@@ -678,6 +678,7 @@ export const pl_pl = {
   "setup.compatibility.continueAnyway": "Kontynuuj mimo to",
   "setup.provider.provider": "Dostawca",
   "setup.provider.model": "Model",
+  "setup.provider.refreshModels": "Odśwież listę modeli",
   "setup.provider.chatgptSubscriptionDescription": "Skorzystaj z subskrypcji ChatGPT, gdy włączona jest obsługa zaufanego protokołu OAuth.",
   "setup.provider.manualApiKeyDescription": "Przechowuj klucz API dostawcy w magazynie danych uwierzytelniających zaufanej aplikacji.",
   "setup.provider.apiKey": "Klucz API",

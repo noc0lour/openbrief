@@ -678,6 +678,7 @@ export const uk_ua = {
   "setup.compatibility.continueAnyway": "Все одно продовжуй",
   "setup.provider.provider": "Провайдер",
   "setup.provider.model": "Модель",
+  "setup.provider.refreshModels": "Оновити список моделей",
   "setup.provider.chatgptSubscriptionDescription": "Використовуйте свою підписку ChatGPT, якщо ввімкнено надійну підтримку OAuth.",
   "setup.provider.manualApiKeyDescription": "Зберігайте ключ API постачальника в надійному сховищі облікових даних програми.",
   "setup.provider.apiKey": "Ключ API",

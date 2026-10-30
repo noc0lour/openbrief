@@ -678,6 +678,7 @@ export const zh_tw = {
   "setup.compatibility.continueAnyway": "仍然繼續",
   "setup.provider.provider": "提供者",
   "setup.provider.model": "模型",
+  "setup.provider.refreshModels": "重新整理模型清單",
   "setup.provider.chatgptSubscriptionDescription": "當啟用可信任 OAuth 支援時，請使用您的 ChatGPT 訂閱。",
   "setup.provider.manualApiKeyDescription": "將提供者 API 金鑰儲存在受信任的應用程式憑證儲存中。",
   "setup.provider.apiKey": "API金鑰",

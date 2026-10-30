@@ -678,6 +678,7 @@ export const ar_ma = {
   "setup.compatibility.continueAnyway": "استمر على أي حال",
   "setup.provider.provider": "مزود",
   "setup.provider.model": "نموذج",
+  "setup.provider.refreshModels": "تحديث قائمة النماذج",
   "setup.provider.chatgptSubscriptionDescription": "استخدم اشتراك ChatGPT الخاص بك عند تمكين دعم OAuth الموثوق.",
   "setup.provider.manualApiKeyDescription": "قم بتخزين مفتاح API للموفر في متجر بيانات اعتماد التطبيق الموثوق به.",
   "setup.provider.apiKey": "مفتاح واجهة برمجة التطبيقات",

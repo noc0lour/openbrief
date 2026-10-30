@@ -678,6 +678,7 @@ export const el_gr = {
   "setup.compatibility.continueAnyway": "Συνέχισε πάντως",
   "setup.provider.provider": "Προμηθευτής",
   "setup.provider.model": "Μοντέλο",
+  "setup.provider.refreshModels": "Ανανέωση λίστας μοντέλων",
   "setup.provider.chatgptSubscriptionDescription": "Χρησιμοποιήστε τη συνδρομή σας στο ChatGPT όταν είναι ενεργοποιημένη η αξιόπιστη υποστήριξη OAuth.",
   "setup.provider.manualApiKeyDescription": "Αποθηκεύστε ένα κλειδί API παρόχου στο χώρο αποθήκευσης διαπιστευτηρίων αξιόπιστης εφαρμογής.",
   "setup.provider.apiKey": "Κλειδί API",

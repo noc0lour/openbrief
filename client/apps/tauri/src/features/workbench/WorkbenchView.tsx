@@ -47,10 +47,12 @@ import { MarkdownRenderer } from "@/components/markdown/MarkdownRenderer";
 import { MarkdownSummaryEditor } from "@/components/markdown/MarkdownSummaryEditor";
 import { AudioPlayer } from "@/components/media/AudioPlayer";
 import { PdfViewer } from "@/components/media/PdfViewer";
+import { OpenaiCompatibleModelInput } from "@/components/provider/OpenaiCompatibleModelInput";
 import { ProviderIcon } from "@/components/provider/ProviderIcon";
 import { VideoPlayer } from "@/components/video/VideoPlayer";
 import { mediaSourceTypeForAsset } from "@/domain/media-library";
 import {
+  defaultModelForProvider,
   defaultProviderModels,
   providerLabels,
   providerModelOptions,
@@ -1344,7 +1346,7 @@ export function WorkbenchView({
                   onProviderChange={(nextProvider) => {
                     updateSummaryProviderPreference({
                       provider: nextProvider,
-                      model: defaultProviderModels[nextProvider],
+                      model: defaultModelForProvider(nextProvider),
                       streamingMode: summaryProviderConfig.streamingMode,
                     });
                   }}
@@ -1723,7 +1725,7 @@ export function WorkbenchView({
                   onProviderChange={(nextProvider) => {
                     updateChatProviderPreference({
                       provider: nextProvider,
-                      model: defaultProviderModels[nextProvider],
+                      model: defaultModelForProvider(nextProvider),
                       streamingMode: chatProviderConfig.streamingMode,
                     });
                   }}
@@ -4140,6 +4142,17 @@ function ProviderModelSelect({
   onChange(value: string): void;
 }) {
   const { t } = useI18n();
+
+  if (provider === "openai-compatible") {
+    return (
+      <OpenaiCompatibleModelInput
+        ariaLabel={t("workbench.summary.model")}
+        value={value}
+        className={triggerClassName}
+        onCommit={onChange}
+      />
+    );
+  }
 
   return (
     <WorkbenchSelect
