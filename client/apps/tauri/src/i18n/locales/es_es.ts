@@ -678,6 +678,7 @@ export const es_es = {
   "setup.compatibility.continueAnyway": "Continuar de todos modos",
   "setup.provider.provider": "Proveedor",
   "setup.provider.model": "Modelo",
+  "setup.provider.refreshModels": "Actualizar lista de modelos",
   "setup.provider.chatgptSubscriptionDescription": "Utilice su suscripción ChatGPT cuando esté habilitado el soporte confiable de OAuth.",
   "setup.provider.manualApiKeyDescription": "Almacene una clave API de proveedor en el almacén de credenciales de aplicaciones confiables.",
   "setup.provider.apiKey": "clave API",

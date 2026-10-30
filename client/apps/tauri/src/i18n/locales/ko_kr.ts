@@ -678,6 +678,7 @@ export const ko_kr = {
   "setup.compatibility.continueAnyway": "무시하고 계속",
   "setup.provider.provider": "공급자",
   "setup.provider.model": "모델",
+  "setup.provider.refreshModels": "모델 목록 새로 고침",
   "setup.provider.chatgptSubscriptionDescription": "신뢰할 수 있는 OAuth 지원이 활성화된 경우 ChatGPT 구독을 사용하세요.",
   "setup.provider.manualApiKeyDescription": "신뢰할 수 있는 앱 자격 증명 저장소에 공급자 API 키를 저장합니다.",
   "setup.provider.apiKey": "API 키",

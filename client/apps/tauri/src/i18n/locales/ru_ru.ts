@@ -678,6 +678,7 @@ export const ru_ru = {
   "setup.compatibility.continueAnyway": "Продолжить в любом случае",
   "setup.provider.provider": "Поставщик",
   "setup.provider.model": "Модель",
+  "setup.provider.refreshModels": "Обновить список моделей",
   "setup.provider.chatgptSubscriptionDescription": "Используйте подписку ChatGPT, если включена доверенная поддержка OAuth.",
   "setup.provider.manualApiKeyDescription": "Сохраните ключ API поставщика в доверенном хранилище учетных данных приложения.",
   "setup.provider.apiKey": "API-ключ",

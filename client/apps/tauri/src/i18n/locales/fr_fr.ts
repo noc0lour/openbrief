@@ -678,6 +678,7 @@ export const fr_fr = {
   "setup.compatibility.continueAnyway": "Continuer quand même",
   "setup.provider.provider": "Fournisseur",
   "setup.provider.model": "Modèle",
+  "setup.provider.refreshModels": "Actualiser la liste des modèles",
   "setup.provider.chatgptSubscriptionDescription": "Utilisez votre abonnement ChatGPT lorsque la prise en charge OAuth fiable est activée.",
   "setup.provider.manualApiKeyDescription": "Stockez une clé API de fournisseur dans le magasin d’informations d’identification d’application de confiance.",
   "setup.provider.apiKey": "Clé API",

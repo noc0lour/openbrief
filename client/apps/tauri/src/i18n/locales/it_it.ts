@@ -678,6 +678,7 @@ export const it_it = {
   "setup.compatibility.continueAnyway": "Continua comunque",
   "setup.provider.provider": "Fornitore",
   "setup.provider.model": "Modello",
+  "setup.provider.refreshModels": "Aggiorna elenco modelli",
   "setup.provider.chatgptSubscriptionDescription": "Utilizza il tuo abbonamento ChatGPT quando il supporto OAuth attendibile è abilitato.",
   "setup.provider.manualApiKeyDescription": "Archivia una chiave API del provider nell'archivio credenziali dell'app attendibile.",
   "setup.provider.apiKey": "Chiave API",

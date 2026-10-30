@@ -678,6 +678,7 @@ export const de_de = {
   "setup.compatibility.continueAnyway": "Machen Sie trotzdem weiter",
   "setup.provider.provider": "Anbieter",
   "setup.provider.model": "Modell",
+  "setup.provider.refreshModels": "Modellliste aktualisieren",
   "setup.provider.chatgptSubscriptionDescription": "Verwenden Sie Ihr ChatGPT-Abonnement, wenn die vertrauenswürdige OAuth-Unterstützung aktiviert ist.",
   "setup.provider.manualApiKeyDescription": "Speichern Sie einen Anbieter-API-Schlüssel im vertrauenswürdigen App-Anmeldeinformationsspeicher.",
   "setup.provider.apiKey": "API-Schlüssel",

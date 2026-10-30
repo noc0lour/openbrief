@@ -689,6 +689,7 @@ export const zh_cn = {
   "setup.provider.apiKeyPlaceholder": "{provider} API 密钥",
   "setup.provider.endpoint": "接口地址",
   "setup.provider.endpointPlaceholder": "https://your-server/v1/chat/completions",
+  "setup.provider.refreshModels": "刷新模型列表",
   "setup.provider.oauth": "OAuth订阅",
   "setup.provider.oauthStatus": "计划",
   "setup.provider.oauthDescription": "订阅 OAuth 保留在受信任的 Rust 边界后面，并且在此版本中未启用。",

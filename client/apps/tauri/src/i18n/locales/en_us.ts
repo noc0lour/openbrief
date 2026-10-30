@@ -804,6 +804,7 @@ export const en_us = {
   "setup.provider.apiKeyPlaceholder": "{provider} API key",
   "setup.provider.endpoint": "Endpoint URL",
   "setup.provider.endpointPlaceholder": "https://your-server/v1/chat/completions",
+  "setup.provider.refreshModels": "Refresh model list",
   "setup.provider.save": "Save",
   "setup.provider.oauth": "OAuth subscription",
   "setup.provider.oauthStatus": "planned",
