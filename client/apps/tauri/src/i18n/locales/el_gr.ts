@@ -380,6 +380,7 @@ export const el_gr = {
   "workbench.chat.empty": "Κάντε μια ερώτηση χρησιμοποιώντας περίληψη ή μεταγραφή.",
   "workbench.chat.sending": "Το AI γράφει μια απάντηση...",
   "workbench.chat.failed": "Η συνομιλία απέτυχε",
+  "workbench.chat.retry": "Επανάληψη",
   "workbench.chat.question": "Ερώτηση συνομιλίας",
   "workbench.chat.newChat": "Νέα συνομιλία",
   "workbench.chat.copyMessage": "Αντιγραφή μηνύματος",

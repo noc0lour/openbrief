@@ -1487,7 +1487,7 @@ export function WorkbenchView({
                             : undefined
                         }
                       />
-                    ) : !summaryJob ? (
+                    ) : summaryJob?.status !== "running" ? (
                       <BriefEmptyState
                         action={
                           <SummaryGenerateDialog
@@ -1694,6 +1694,24 @@ export function WorkbenchView({
                     job={chatJob}
                     runningLabel={t("workbench.chat.sending")}
                     failedLabel={t("workbench.chat.failed")}
+                    action={
+                      chatJob.question ? (
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="outline"
+                          disabled={isSendingChat}
+                          onClick={() => {
+                            if (chatJob.question) {
+                              void submitChat(chatJob.question);
+                            }
+                          }}
+                        >
+                          <RotateCcw className="h-4 w-4" aria-hidden="true" />
+                          {t("workbench.chat.retry")}
+                        </Button>
+                      ) : undefined
+                    }
                   />
                 ) : null}
               </div>
@@ -4055,10 +4073,12 @@ function AiGenerationStatus({
   job,
   runningLabel,
   failedLabel,
+  action,
 }: {
   job: AiGenerationJob;
   runningLabel: string;
   failedLabel: string;
+  action?: ReactNode;
 }) {
   return (
     <div
@@ -4077,6 +4097,7 @@ function AiGenerationStatus({
       {job.errorMessage ? (
         <p className="text-destructive mt-1 text-xs">{job.errorMessage}</p>
       ) : null}
+      {action ? <div className="mt-2 flex justify-end">{action}</div> : null}
     </div>
   );
 }

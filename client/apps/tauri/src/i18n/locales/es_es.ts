@@ -380,6 +380,7 @@ export const es_es = {
   "workbench.chat.empty": "Haga una pregunta utilizando un contexto de resumen o transcripción.",
   "workbench.chat.sending": "La IA está escribiendo una respuesta...",
   "workbench.chat.failed": "Error en el chat",
+  "workbench.chat.retry": "Reintentar",
   "workbench.chat.question": "pregunta de chat",
   "workbench.chat.newChat": "Nuevo chat",
   "workbench.chat.copyMessage": "Copiar mensaje",

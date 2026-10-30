@@ -380,6 +380,7 @@ export const pl_pl = {
   "workbench.chat.empty": "Zadaj pytanie, korzystając z kontekstu podsumowania lub transkrypcji.",
   "workbench.chat.sending": "AI pisze odpowiedź...",
   "workbench.chat.failed": "Czat nie powiódł się",
+  "workbench.chat.retry": "Ponów",
   "workbench.chat.question": "Pytanie na czacie",
   "workbench.chat.newChat": "Nowy czat",
   "workbench.chat.copyMessage": "Skopiuj wiadomość",

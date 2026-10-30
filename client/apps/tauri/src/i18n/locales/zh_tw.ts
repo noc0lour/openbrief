@@ -380,6 +380,7 @@ export const zh_tw = {
   "workbench.chat.empty": "使用摘要或文字記錄上下文提出問題。",
   "workbench.chat.sending": "AI 正在撰寫回應...",
   "workbench.chat.failed": "聊天失敗",
+  "workbench.chat.retry": "重試",
   "workbench.chat.question": "聊天問題",
   "workbench.chat.newChat": "新聊天",
   "workbench.chat.copyMessage": "複製訊息",

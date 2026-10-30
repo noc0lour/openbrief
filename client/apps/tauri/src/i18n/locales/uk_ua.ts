@@ -380,6 +380,7 @@ export const uk_ua = {
   "workbench.chat.empty": "Поставте запитання, використовуючи короткий виклад або контекст стенограми.",
   "workbench.chat.sending": "AI пише відповідь...",
   "workbench.chat.failed": "Помилка чату",
+  "workbench.chat.retry": "Повторити",
   "workbench.chat.question": "Питання в чаті",
   "workbench.chat.newChat": "Новий чат",
   "workbench.chat.copyMessage": "Копіювати повідомлення",

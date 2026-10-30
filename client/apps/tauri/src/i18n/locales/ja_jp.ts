@@ -380,6 +380,7 @@ export const ja_jp = {
   "workbench.chat.empty": "概要またはトランスクリプトのコンテキストを使用して質問します。",
   "workbench.chat.sending": "AI が応答を書いています...",
   "workbench.chat.failed": "チャットに失敗しました",
+  "workbench.chat.retry": "再試行",
   "workbench.chat.question": "チャットの質問",
   "workbench.chat.newChat": "新しいチャット",
   "workbench.chat.copyMessage": "メッセージをコピーする",
