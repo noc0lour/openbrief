@@ -84,6 +84,17 @@ DESIGN.md             Product and UI direction
 
 Use the package manager declared in `client/package.json`.
 
+### Nix
+
+A Nix flake at the repository root provides Node.js 22, pnpm 11, a stable Rust toolchain, `cargo-tauri`, CMake, Python 3.11, and the Tauri Linux system libraries:
+
+```bash
+nix develop        # or `direnv allow` to load .envrc automatically
+cd client && pnpm install
+```
+
+On macOS the shell uses the system Xcode toolchain (clang, Apple SDK, `swift` for the FluidAudio sidecar, `codesign`), so Xcode or the Command Line Tools must be installed.
+
 ## Setup
 
 Install dependencies from the workspace root:
