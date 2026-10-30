@@ -677,6 +677,9 @@ export const de_de = {
   "setup.whisper.notDownloaded": "nicht heruntergeladen",
   "setup.whisper.download": "Herunterladen",
   "setup.whisper.downloadingModel": "Modell wird heruntergeladen",
+  "setup.whisper.confirmTitle": "{model} herunterladen?",
+  "setup.whisper.confirmDescription":
+    "{model} ist noch nicht heruntergeladen ({size}). Jetzt herunterladen, um es für die Transkription zu verwenden.",
   "setup.compatibility.warningTitle": "Kompatibilitätswarnung",
   "setup.compatibility.continueAnyway": "Machen Sie trotzdem weiter",
   "setup.provider.provider": "Anbieter",

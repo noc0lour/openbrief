@@ -792,6 +792,9 @@ export const en_us = {
   "setup.whisper.notDownloaded": "not downloaded",
   "setup.whisper.download": "Download",
   "setup.whisper.downloadingModel": "Downloading model",
+  "setup.whisper.confirmTitle": "Download {model}?",
+  "setup.whisper.confirmDescription":
+    "{model} is not downloaded yet ({size}). Download it now to use it for transcription.",
   "setup.compatibility.warningTitle": "Compatibility warning",
   "setup.compatibility.continueAnyway": "Continue anyway",
   "setup.provider.provider": "Provider",

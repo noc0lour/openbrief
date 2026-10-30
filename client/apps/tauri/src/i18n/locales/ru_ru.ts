@@ -677,6 +677,9 @@ export const ru_ru = {
   "setup.whisper.notDownloaded": "не загружен",
   "setup.whisper.download": "Скачать",
   "setup.whisper.downloadingModel": "Скачивание модели",
+  "setup.whisper.confirmTitle": "Скачать {model}?",
+  "setup.whisper.confirmDescription":
+    "{model} ещё не загружена ({size}). Скачайте её сейчас, чтобы использовать для транскрипции.",
   "setup.compatibility.warningTitle": "Предупреждение о совместимости",
   "setup.compatibility.continueAnyway": "Продолжить в любом случае",
   "setup.provider.provider": "Поставщик",

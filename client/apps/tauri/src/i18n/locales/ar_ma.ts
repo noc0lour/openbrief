@@ -677,6 +677,9 @@ export const ar_ma = {
   "setup.whisper.notDownloaded": "لم يتم تحميلها",
   "setup.whisper.download": "تحميل",
   "setup.whisper.downloadingModel": "جاري تحميل النموذج",
+  "setup.whisper.confirmTitle": "تنزيل {model}؟",
+  "setup.whisper.confirmDescription":
+    "لم يتم تنزيل {model} بعد ({size}). نزّله الآن لاستخدامه في النسخ.",
   "setup.compatibility.warningTitle": "تحذير التوافق",
   "setup.compatibility.continueAnyway": "استمر على أي حال",
   "setup.provider.provider": "مزود",

@@ -677,6 +677,9 @@ export const pl_pl = {
   "setup.whisper.notDownloaded": "nie pobrano",
   "setup.whisper.download": "Pobierać",
   "setup.whisper.downloadingModel": "Pobieranie modelu",
+  "setup.whisper.confirmTitle": "Pobrać {model}?",
+  "setup.whisper.confirmDescription":
+    "{model} nie jest jeszcze pobrany ({size}). Pobierz go teraz, aby używać go do transkrypcji.",
   "setup.compatibility.warningTitle": "Ostrzeżenie o zgodności",
   "setup.compatibility.continueAnyway": "Kontynuuj mimo to",
   "setup.provider.provider": "Dostawca",

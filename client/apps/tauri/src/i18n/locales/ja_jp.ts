@@ -677,6 +677,9 @@ export const ja_jp = {
   "setup.whisper.notDownloaded": "ダウンロードされていない",
   "setup.whisper.download": "ダウンロード",
   "setup.whisper.downloadingModel": "モデルをダウンロードしています",
+  "setup.whisper.confirmTitle": "{model} をダウンロードしますか？",
+  "setup.whisper.confirmDescription":
+    "{model} はまだダウンロードされていません（{size}）。文字起こしに使うには今すぐダウンロードしてください。",
   "setup.compatibility.warningTitle": "互換性に関する警告",
   "setup.compatibility.continueAnyway": "とにかく続けてください",
   "setup.provider.provider": "プロバイダー",

@@ -3620,12 +3620,13 @@ function TranscriptionModelDialog({
   onModelChange(modelId: string): void;
 }) {
   const { t } = useI18n();
+  const [open, setOpen] = useState(false);
   const label = t("settings.stt.model");
   const modelName =
     models.find((model) => model.id === modelId)?.name ?? modelId ?? "";
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
           type="button"
@@ -3655,7 +3656,10 @@ function TranscriptionModelDialog({
             models={models}
             value={modelId}
             ariaLabel={label}
-            onChange={onModelChange}
+            onChange={(nextModelId) => {
+              setOpen(false);
+              onModelChange(nextModelId);
+            }}
           />
         </div>
       </DialogContent>

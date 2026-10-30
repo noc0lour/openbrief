@@ -677,6 +677,9 @@ export const uk_ua = {
   "setup.whisper.notDownloaded": "не завантажено",
   "setup.whisper.download": "Завантажити",
   "setup.whisper.downloadingModel": "Завантаження моделі",
+  "setup.whisper.confirmTitle": "Завантажити {model}?",
+  "setup.whisper.confirmDescription":
+    "{model} ще не завантажено ({size}). Завантажте зараз, щоб використовувати для транскрипції.",
   "setup.compatibility.warningTitle": "Попередження про сумісність",
   "setup.compatibility.continueAnyway": "Все одно продовжуй",
   "setup.provider.provider": "Провайдер",

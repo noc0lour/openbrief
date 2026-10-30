@@ -677,6 +677,9 @@ export const it_it = {
   "setup.whisper.notDownloaded": "non scaricato",
   "setup.whisper.download": "Scaricamento",
   "setup.whisper.downloadingModel": "Download del modello",
+  "setup.whisper.confirmTitle": "Scaricare {model}?",
+  "setup.whisper.confirmDescription":
+    "{model} non è ancora stato scaricato ({size}). Scaricalo ora per usarlo nella trascrizione.",
   "setup.compatibility.warningTitle": "Avviso di compatibilità",
   "setup.compatibility.continueAnyway": "Continua comunque",
   "setup.provider.provider": "Fornitore",

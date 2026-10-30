@@ -29,6 +29,7 @@ import type {
 } from "@/domain/summary";
 import type { TranscriptLanguageOption } from "@/domain/transcript-actions";
 import type { SetupDialogMode } from "@/features/setup/SetupDialog";
+import type { SttModelDownloadState } from "@/features/setup/SttModelDownloadDialog";
 import type { TranslationKey } from "@/i18n";
 import type {
   AiProviderPreferences,
@@ -51,6 +52,7 @@ import { CopyDropdownMenuItem } from "@/components/CopyAction";
 import { FloatingMiniPlayer } from "@/components/video/FloatingMiniPlayer";
 import { VideoDownloadMenuButton } from "@/components/video/VideoDownloadMenu";
 import { sanitizeChatMessageTtsPathSegment } from "@/domain/chat";
+import { getSttModelCompatibility } from "@/domain/compatibility";
 import {
   isSupportedLocalMediaFile,
   mediaSourceTypeFromFileName,
@@ -73,6 +75,7 @@ import { OnboardingView } from "@/features/onboarding/OnboardingView";
 import { PlaylistView } from "@/features/playlists/PlaylistView";
 import { SettingsView } from "@/features/settings/SettingsView";
 import { SetupDialog } from "@/features/setup/SetupDialog";
+import { SttModelDownloadDialog } from "@/features/setup/SttModelDownloadDialog";
 import { TutorialView } from "@/features/tutorial/TutorialView";
 import { VoicesView } from "@/features/voices/VoicesView";
 import { WorkbenchView } from "@/features/workbench/WorkbenchView";
@@ -399,6 +402,8 @@ export function AppShell() {
   const [selectedWhisperModelId, setSelectedWhisperModelId] = useState(() =>
     loadSttModelPreference(),
   );
+  const [sttModelDownload, setSttModelDownload] =
+    useState<SttModelDownloadState>();
   const [setupProvider, setSetupProvider] = useState<ProviderKind>("openai");
   const [setupProviderModel, setSetupProviderModel] = useState(
     defaultProviderModels.openai,
@@ -1453,6 +1458,61 @@ export function AppShell() {
     setSelectedWhisperModelId(saveSttModelPreference(modelId));
   }
 
+  // Pickers outside the setup flow confirm and download a missing model
+  // right away so the next transcription starts without another prompt.
+  function requestSttModel(modelId: string) {
+    const model = sttModels.find((candidate) => candidate.id === modelId);
+    if (!model || isSttModelUsable(model)) {
+      selectSttModel(modelId);
+      return;
+    }
+
+    setSttModelDownload({ modelId, status: "confirm", progressPercent: 0 });
+  }
+
+  async function confirmSttModelDownload() {
+    if (!sttModelDownload) return;
+
+    const { modelId } = sttModelDownload;
+    const minimumPercent =
+      sttModels.find((model) => model.id === modelId)?.engine === "fluidaudio"
+        ? 5
+        : 0;
+    const updateDownload = (patch: Partial<SttModelDownloadState>) =>
+      setSttModelDownload((current) =>
+        current?.modelId === modelId ? { ...current, ...patch } : current,
+      );
+
+    updateDownload({
+      status: "downloading",
+      progressPercent: minimumPercent,
+      errorMessage: undefined,
+    });
+    try {
+      const result = await setupService.downloadWhisperModel(modelId, {
+        onProgress(progress) {
+          updateDownload({
+            progressPercent: Math.max(minimumPercent, progress.progressPercent),
+          });
+        },
+      });
+      if (result.downloaded) {
+        setDownloadedWhisperModelIds((current) =>
+          current.includes(modelId) ? current : [...current, modelId],
+        );
+      }
+      await refreshSettings();
+      selectSttModel(modelId);
+      setSttModelDownload(undefined);
+    } catch (error) {
+      updateDownload({
+        status: "failed",
+        errorMessage:
+          error instanceof Error ? error.message : "stt_model_download_failed",
+      });
+    }
+  }
+
   function saveAiProviderPreferencesFromSettings(
     preferences: AiProviderPreferences,
   ) {
@@ -2390,7 +2450,7 @@ export function AppShell() {
           chatStreamingMode={aiProviderPreferences.chat.streamingMode}
           sttModels={sttModels}
           sttModelId={selectedWhisperModel?.id}
-          onSttModelChange={selectSttModel}
+          onSttModelChange={requestSttModel}
           onSummaryProviderPreferenceChange={(config) =>
             saveAiProviderWorkflowPreference("summary", config)
           }
@@ -2480,7 +2540,7 @@ export function AppShell() {
           aiProviderPreferences={aiProviderPreferences}
           onAiProviderPreferencesChange={saveAiProviderPreferencesFromSettings}
           sttModelId={selectedWhisperModel?.id}
-          onSttModelChange={selectSttModel}
+          onSttModelChange={requestSttModel}
           ttsSettings={ttsSettings}
           onTtsSettingsChange={saveTtsSettingsFromSettings}
           systemPromptSettings={systemPromptSettings}
@@ -2834,8 +2894,34 @@ export function AppShell() {
         }}
         onContinue={continuePendingAction}
       />
+      <SttModelDownloadDialog
+        state={sttModelDownload}
+        model={sttModels.find(
+          (model) => model.id === sttModelDownload?.modelId,
+        )}
+        blockedMessage={
+          sttModelDownload
+            ? blockedSttModelMessage(
+                effectiveSettings?.compatibility,
+                sttModelDownload.modelId,
+              )
+            : undefined
+        }
+        onConfirm={() => void confirmSttModelDownload()}
+        onCancel={() => setSttModelDownload(undefined)}
+      />
     </AppLayout>
   );
+}
+
+function blockedSttModelMessage(
+  report: Parameters<typeof getSttModelCompatibility>[0],
+  modelId: string,
+) {
+  const compatibility = getSttModelCompatibility(report, modelId);
+  return compatibility?.severity === "blocked"
+    ? compatibility.message
+    : undefined;
 }
 
 function FinderSearchInput({

@@ -677,6 +677,9 @@ export const ko_kr = {
   "setup.whisper.notDownloaded": "다운로드되지 않음",
   "setup.whisper.download": "다운로드",
   "setup.whisper.downloadingModel": "모델 다운로드 중",
+  "setup.whisper.confirmTitle": "{model}을(를) 다운로드할까요?",
+  "setup.whisper.confirmDescription":
+    "{model}이(가) 아직 다운로드되지 않았습니다({size}). 전사에 사용하려면 지금 다운로드하세요.",
   "setup.compatibility.warningTitle": "호환성 경고",
   "setup.compatibility.continueAnyway": "무시하고 계속",
   "setup.provider.provider": "공급자",

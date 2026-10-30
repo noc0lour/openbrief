@@ -677,6 +677,9 @@ export const zh_tw = {
   "setup.whisper.notDownloaded": "未下載",
   "setup.whisper.download": "下載",
   "setup.whisper.downloadingModel": "下載模型",
+  "setup.whisper.confirmTitle": "下載 {model}？",
+  "setup.whisper.confirmDescription":
+    "{model} 尚未下載（{size}）。立即下載以用於轉錄。",
   "setup.compatibility.warningTitle": "相容性警告",
   "setup.compatibility.continueAnyway": "仍然繼續",
   "setup.provider.provider": "提供者",

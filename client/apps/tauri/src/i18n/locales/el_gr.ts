@@ -677,6 +677,9 @@ export const el_gr = {
   "setup.whisper.notDownloaded": "δεν έχει γίνει λήψη",
   "setup.whisper.download": "Λήψη",
   "setup.whisper.downloadingModel": "Λήψη μοντέλου",
+  "setup.whisper.confirmTitle": "Λήψη του {model};",
+  "setup.whisper.confirmDescription":
+    "Το {model} δεν έχει ληφθεί ακόμη ({size}). Κατεβάστε το τώρα για να το χρησιμοποιήσετε στη μεταγραφή.",
   "setup.compatibility.warningTitle": "Προειδοποίηση συμβατότητας",
   "setup.compatibility.continueAnyway": "Συνέχισε πάντως",
   "setup.provider.provider": "Προμηθευτής",
