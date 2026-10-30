@@ -602,6 +602,9 @@ export const en_us = {
   "settings.compatibility.title": "Compatibility",
   "settings.video.title": "Video Download",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Transcription model",
+  "settings.stt.modelDescription":
+    "Used for local transcription. Models that are not downloaded yet are fetched before the first transcription.",
   "settings.tts.title": "TTS",
   "settings.providers.title": "AI Providers",
   "settings.providers.summaryProvider": "Summarize Provider",

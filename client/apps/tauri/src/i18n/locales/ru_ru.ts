@@ -74,6 +74,9 @@ export const ru_ru = {
   "settings.version.title": "Информация о версии",
   "settings.video.title": "Загрузка видео",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Модель транскрипции",
+  "settings.stt.modelDescription":
+    "Используется для локальной транскрипции. Ещё не загруженные модели скачиваются перед первой транскрипцией.",
   "settings.providers.title": "Поставщики ИИ",
   "settings.providers.summaryProvider": "Поставщик резюме",
   "settings.providers.chatProvider": "Поставщик чата",

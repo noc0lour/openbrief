@@ -74,6 +74,9 @@ export const pl_pl = {
   "settings.version.title": "Informacje o wersji",
   "settings.video.title": "Pobieranie wideo",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Model transkrypcji",
+  "settings.stt.modelDescription":
+    "Używany do lokalnej transkrypcji. Niepobrane modele są pobierane przed pierwszą transkrypcją.",
   "settings.providers.title": "Dostawcy AI",
   "settings.providers.summaryProvider": "Dostawca podsumowań",
   "settings.providers.chatProvider": "Dostawca czatu",

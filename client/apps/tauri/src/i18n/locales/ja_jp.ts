@@ -74,6 +74,9 @@ export const ja_jp = {
   "settings.version.title": "バージョン情報",
   "settings.video.title": "動画ダウンロード",
   "settings.stt.title": "STT",
+  "settings.stt.model": "文字起こしモデル",
+  "settings.stt.modelDescription":
+    "ローカル文字起こしに使用します。未ダウンロードのモデルは最初の文字起こしの前に取得されます。",
   "settings.providers.title": "AIプロバイダー",
   "settings.providers.summaryProvider": "要約プロバイダー",
   "settings.providers.chatProvider": "チャットプロバイダー",

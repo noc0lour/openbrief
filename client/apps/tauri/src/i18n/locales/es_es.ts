@@ -74,6 +74,9 @@ export const es_es = {
   "settings.version.title": "Información de versión",
   "settings.video.title": "Descarga de video",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Modelo de transcripción",
+  "settings.stt.modelDescription":
+    "Se usa para la transcripción local. Los modelos aún no descargados se obtienen antes de la primera transcripción.",
   "settings.providers.title": "Proveedores de IA",
   "settings.providers.summaryProvider": "Proveedor de resumen",
   "settings.providers.chatProvider": "Proveedor de chat",

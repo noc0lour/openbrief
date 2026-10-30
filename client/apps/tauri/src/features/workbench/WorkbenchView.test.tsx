@@ -1049,6 +1049,56 @@ describe("WorkbenchView", () => {
     expect(screen.getByText("Streaming chat answer")).toBeInTheDocument();
   });
 
+  it("changes the transcription model from the transcript panel", async () => {
+    const onSttModelChange = vi.fn();
+
+    render(
+      <WorkbenchView
+        {...defaultProps({
+          sttModels: [
+            {
+              id: "parakeet-tdt-0.6b-v3",
+              name: "Parakeet v3",
+              engine: "fluidaudio",
+              fileName: "parakeet",
+              sizeMb: 480,
+              downloaded: true,
+              recommended: true,
+            },
+            {
+              id: "whisper-small",
+              name: "Whisper Small",
+              engine: "whisper",
+              fileName: "ggml-small.bin",
+              sizeMb: 466,
+              downloaded: false,
+              recommended: true,
+            },
+          ],
+          sttModelId: "parakeet-tdt-0.6b-v3",
+          onSttModelChange,
+        })}
+      />,
+    );
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Transcription model: Parakeet v3",
+      }),
+    );
+    fireEvent.keyDown(
+      within(screen.getByRole("dialog")).getByRole("combobox", {
+        name: "Transcription model",
+      }),
+      { key: "Enter", code: "Enter" },
+    );
+    fireEvent.click(
+      await screen.findByRole("option", { name: /Whisper Small/ }),
+    );
+
+    expect(onSttModelChange).toHaveBeenCalledWith("whisper-small");
+  });
+
   it("keeps summary generation available after a failed summary job", () => {
     render(
       <WorkbenchView

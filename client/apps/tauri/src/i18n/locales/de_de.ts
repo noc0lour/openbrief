@@ -74,6 +74,9 @@ export const de_de = {
   "settings.version.title": "Versionsinfo",
   "settings.video.title": "Video-Download",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Transkriptionsmodell",
+  "settings.stt.modelDescription":
+    "Wird für die lokale Transkription verwendet. Noch nicht geladene Modelle werden vor der ersten Transkription heruntergeladen.",
   "settings.providers.title": "KI-Anbieter",
   "settings.providers.summaryProvider": "Anbieter für Zusammenfassungen",
   "settings.providers.chatProvider": "Chat-Anbieter",

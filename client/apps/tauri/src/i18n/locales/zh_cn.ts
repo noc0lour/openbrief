@@ -74,6 +74,9 @@ export const zh_cn = {
   "settings.version.title": "版本信息",
   "settings.video.title": "视频下载",
   "settings.stt.title": "语音转写",
+  "settings.stt.model": "转录模型",
+  "settings.stt.modelDescription":
+    "用于本地转录。尚未下载的模型会在首次转录前下载。",
   "settings.providers.title": "AI 提供商",
   "settings.providers.summaryProvider": "摘要提供商",
   "settings.providers.chatProvider": "聊天提供商",

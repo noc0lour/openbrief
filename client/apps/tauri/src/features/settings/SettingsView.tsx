@@ -28,6 +28,7 @@ import {
 import { ShortcutKbd } from "@/components/keyboard/ShortcutKbd";
 import { OpenaiCompatibleModelInput } from "@/components/provider/OpenaiCompatibleModelInput";
 import { ProviderIcon } from "@/components/provider/ProviderIcon";
+import { SttModelSelect } from "@/components/stt/SttModelSelect";
 import {
   defaultModelForProvider,
   providerLabels,
@@ -97,6 +98,8 @@ type SettingsViewProps = {
   onColorSeedChange?: (colorSeed: AppColorSeed) => void;
   aiProviderPreferences?: AiProviderPreferences;
   onAiProviderPreferencesChange?: (preferences: AiProviderPreferences) => void;
+  sttModelId?: string;
+  onSttModelChange?: (modelId: string) => void;
   ttsSettings?: TtsSettings;
   onTtsSettingsChange?: (settings: TtsSettings) => void;
   systemPromptSettings?: SystemPromptSettings;
@@ -186,6 +189,8 @@ export function SettingsView({
   onColorSeedChange,
   aiProviderPreferences = defaultAiProviderPreferences,
   onAiProviderPreferencesChange,
+  sttModelId,
+  onSttModelChange,
   ttsSettings = defaultTtsSettings,
   onTtsSettingsChange,
   systemPromptSettings = defaultSystemPromptSettings,
@@ -854,6 +859,26 @@ export function SettingsView({
                 <CardContent className="space-y-4">
                   {settings ? (
                     <>
+                      {onSttModelChange ? (
+                        <div className="grid gap-1 text-sm">
+                          <label
+                            className="font-medium"
+                            htmlFor="settings-stt-model"
+                          >
+                            {t("settings.stt.model")}
+                          </label>
+                          <SttModelSelect
+                            id="settings-stt-model"
+                            models={settings.stt.models}
+                            value={sttModelId}
+                            ariaLabel={t("settings.stt.model")}
+                            onChange={onSttModelChange}
+                          />
+                          <p className="text-muted-foreground text-xs">
+                            {t("settings.stt.modelDescription")}
+                          </p>
+                        </div>
+                      ) : null}
                       <DescriptionList
                         rows={[
                           [t("settings.stt.storage"), settings.stt.storage],

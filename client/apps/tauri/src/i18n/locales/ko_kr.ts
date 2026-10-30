@@ -74,6 +74,9 @@ export const ko_kr = {
   "settings.version.title": "버전 정보",
   "settings.video.title": "비디오 다운로드",
   "settings.stt.title": "STT",
+  "settings.stt.model": "전사 모델",
+  "settings.stt.modelDescription":
+    "로컬 전사에 사용됩니다. 아직 다운로드하지 않은 모델은 첫 전사 전에 다운로드됩니다.",
   "settings.providers.title": "AI 제공자",
   "settings.providers.summaryProvider": "요약 제공자",
   "settings.providers.chatProvider": "채팅 제공자",

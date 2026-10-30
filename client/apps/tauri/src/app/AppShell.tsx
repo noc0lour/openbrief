@@ -113,6 +113,10 @@ import {
 } from "@/services/settingsService";
 import { createSetupService, whisperModelPath } from "@/services/setupService";
 import {
+  loadSttModelPreference,
+  saveSttModelPreference,
+} from "@/services/sttModelPreferenceService";
+import {
   createVoiceMessageDownloadFileName,
   findLatestChatBubbleSupertonicAudio,
   readChatBubbleWithSupertonic,
@@ -392,8 +396,8 @@ export function AppShell() {
   const [selectedPodcastAudioUrl, setSelectedPodcastAudioUrl] =
     useState<string>();
   const playlistCoverService = useMemo(() => createPlaylistCoverService(), []);
-  const [selectedWhisperModelId, setSelectedWhisperModelId] = useState(
-    "parakeet-tdt-0.6b-v3",
+  const [selectedWhisperModelId, setSelectedWhisperModelId] = useState(() =>
+    loadSttModelPreference(),
   );
   const [setupProvider, setSetupProvider] = useState<ProviderKind>("openai");
   const [setupProviderModel, setSetupProviderModel] = useState(
@@ -1445,6 +1449,10 @@ export function AppShell() {
     );
   }
 
+  function selectSttModel(modelId: string) {
+    setSelectedWhisperModelId(saveSttModelPreference(modelId));
+  }
+
   function saveAiProviderPreferencesFromSettings(
     preferences: AiProviderPreferences,
   ) {
@@ -2380,6 +2388,9 @@ export function AppShell() {
           chatProvider={aiProviderPreferences.chat.provider}
           chatProviderModel={aiProviderPreferences.chat.model}
           chatStreamingMode={aiProviderPreferences.chat.streamingMode}
+          sttModels={sttModels}
+          sttModelId={selectedWhisperModel?.id}
+          onSttModelChange={selectSttModel}
           onSummaryProviderPreferenceChange={(config) =>
             saveAiProviderWorkflowPreference("summary", config)
           }
@@ -2468,6 +2479,8 @@ export function AppShell() {
           onColorSeedChange={changeAppColorSeed}
           aiProviderPreferences={aiProviderPreferences}
           onAiProviderPreferencesChange={saveAiProviderPreferencesFromSettings}
+          sttModelId={selectedWhisperModel?.id}
+          onSttModelChange={selectSttModel}
           ttsSettings={ttsSettings}
           onTtsSettingsChange={saveTtsSettingsFromSettings}
           systemPromptSettings={systemPromptSettings}
@@ -2746,7 +2759,7 @@ export function AppShell() {
         }
         onClose={() => setCaptionLanguageDialog(undefined)}
         onWhisperModelChange={(modelId) => {
-          setSelectedWhisperModelId(modelId);
+          selectSttModel(modelId);
           setCaptionLanguageDialog((current) => {
             if (!current) return current;
 
@@ -2794,7 +2807,7 @@ export function AppShell() {
         provider={setupProvider}
         providerModel={setupProviderModel}
         onClose={() => setPendingAction(undefined)}
-        onWhisperModelChange={setSelectedWhisperModelId}
+        onWhisperModelChange={selectSttModel}
         onProviderChange={(provider) => {
           setSetupProvider(provider);
           setSetupProviderModel(defaultModelForProvider(provider));

@@ -74,6 +74,9 @@ export const el_gr = {
   "settings.version.title": "Πληροφορίες έκδοσης",
   "settings.video.title": "Λήψη βίντεο",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Μοντέλο μεταγραφής",
+  "settings.stt.modelDescription":
+    "Χρησιμοποιείται για τοπική μεταγραφή. Τα μοντέλα που δεν έχουν ληφθεί ακόμη λαμβάνονται πριν από την πρώτη μεταγραφή.",
   "settings.providers.title": "Πάροχοι AI",
   "settings.providers.summaryProvider": "Πάροχος σύνοψης",
   "settings.providers.chatProvider": "Πάροχος συνομιλίας",

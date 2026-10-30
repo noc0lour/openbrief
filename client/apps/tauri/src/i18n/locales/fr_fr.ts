@@ -74,6 +74,9 @@ export const fr_fr = {
   "settings.version.title": "Informations de version",
   "settings.video.title": "Téléchargement vidéo",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Modèle de transcription",
+  "settings.stt.modelDescription":
+    "Utilisé pour la transcription locale. Les modèles non encore téléchargés sont récupérés avant la première transcription.",
   "settings.providers.title": "Fournisseurs IA",
   "settings.providers.summaryProvider": "Fournisseur de résumé",
   "settings.providers.chatProvider": "Fournisseur de chat",

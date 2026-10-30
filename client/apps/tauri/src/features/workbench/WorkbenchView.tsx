@@ -21,6 +21,7 @@ import type {
   QuizGenerationJob,
   QuizMode,
 } from "@/domain/quiz";
+import type { SttModelStatus } from "@/domain/settings";
 import type {
   SummaryLengthMode,
   SummaryOutputLanguageOption,
@@ -49,6 +50,7 @@ import { AudioPlayer } from "@/components/media/AudioPlayer";
 import { PdfViewer } from "@/components/media/PdfViewer";
 import { OpenaiCompatibleModelInput } from "@/components/provider/OpenaiCompatibleModelInput";
 import { ProviderIcon } from "@/components/provider/ProviderIcon";
+import { SttModelSelect } from "@/components/stt/SttModelSelect";
 import { VideoPlayer } from "@/components/video/VideoPlayer";
 import { mediaSourceTypeForAsset } from "@/domain/media-library";
 import {
@@ -79,6 +81,7 @@ import {
 import {
   Bot,
   Check,
+  Cpu,
   Download,
   Eye,
   FileText,
@@ -244,6 +247,9 @@ type WorkbenchViewProps = {
   chatStreamingMode?: boolean;
   onSummaryProviderPreferenceChange?(config: AiWorkflowProviderConfig): void;
   onChatProviderPreferenceChange?(config: AiWorkflowProviderConfig): void;
+  sttModels?: SttModelStatus["models"];
+  sttModelId?: string;
+  onSttModelChange?(modelId: string): void;
   onSaveMarkdown(summaryId?: string): unknown;
   onUpdateSummaryMarkdown?(summaryId: string, markdown: string): void;
   onUpdateTranscriptSegment?(segmentId: string, text: string): void;
@@ -317,6 +323,9 @@ export function WorkbenchView({
   chatStreamingMode = false,
   onSummaryProviderPreferenceChange,
   onChatProviderPreferenceChange,
+  sttModels = [],
+  sttModelId,
+  onSttModelChange,
   onSaveMarkdown,
   onUpdateSummaryMarkdown,
   onUpdateTranscriptSegment,
@@ -1027,10 +1036,11 @@ export function WorkbenchView({
               ) : (
                 <PdfViewer media={video} />
               )}
-              <div className="grid gap-2">
+              <div className="flex min-w-0 gap-2">
                 <Button
                   type="button"
                   variant="outline"
+                  className="min-w-0 flex-1"
                   disabled={isExtractingTranscript || isTranscribing}
                   onClick={() => void runAction(onExtractTranscript)}
                 >
@@ -1039,6 +1049,14 @@ export function WorkbenchView({
                     ? t("workbench.extractingTranscript")
                     : t("workbench.extractTranscript")}
                 </Button>
+                {onSttModelChange && sttModels.length > 0 ? (
+                  <TranscriptionModelDialog
+                    models={sttModels}
+                    modelId={sttModelId}
+                    disabled={isTranscribing}
+                    onModelChange={onSttModelChange}
+                  />
+                ) : null}
               </div>
               {transcriptJob ? (
                 <TranscriptProgressCard transcriptJob={transcriptJob} />
@@ -3584,6 +3602,61 @@ function SummaryProviderDialog({
               {t("workbench.summary.streamingDescription")}
             </p>
           </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function TranscriptionModelDialog({
+  models,
+  modelId,
+  disabled,
+  onModelChange,
+}: {
+  models: SttModelStatus["models"];
+  modelId?: string;
+  disabled: boolean;
+  onModelChange(modelId: string): void;
+}) {
+  const { t } = useI18n();
+  const label = t("settings.stt.model");
+  const modelName =
+    models.find((model) => model.id === modelId)?.name ?? modelId ?? "";
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button
+          type="button"
+          variant="outline"
+          className="max-w-[12rem] shrink-0 justify-start gap-2 px-2.5 text-left"
+          disabled={disabled}
+          aria-label={`${label}: ${modelName}`}
+        >
+          <Cpu className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <span
+            className="text-muted-foreground min-w-0 truncate text-xs"
+            aria-hidden="true"
+          >
+            {modelName}
+          </span>
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle>{label}</DialogTitle>
+          <DialogDescription>
+            {t("settings.stt.modelDescription")}
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-2 py-2 text-sm">
+          <SttModelSelect
+            models={models}
+            value={modelId}
+            ariaLabel={label}
+            onChange={onModelChange}
+          />
         </div>
       </DialogContent>
     </Dialog>

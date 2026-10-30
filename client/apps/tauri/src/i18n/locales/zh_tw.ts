@@ -74,6 +74,9 @@ export const zh_tw = {
   "settings.version.title": "版本資訊",
   "settings.video.title": "影片下載",
   "settings.stt.title": "語音轉寫",
+  "settings.stt.model": "轉錄模型",
+  "settings.stt.modelDescription":
+    "用於本機轉錄。尚未下載的模型會在首次轉錄前下載。",
   "settings.providers.title": "AI 供應商",
   "settings.providers.summaryProvider": "摘要供應商",
   "settings.providers.chatProvider": "聊天供應商",

@@ -74,6 +74,9 @@ export const ar_ma = {
   "settings.version.title": "معلومات الإصدار",
   "settings.video.title": "تنزيل الفيديو",
   "settings.stt.title": "STT",
+  "settings.stt.model": "نموذج النسخ",
+  "settings.stt.modelDescription":
+    "يُستخدم للنسخ المحلي. يتم تنزيل النماذج غير المنزّلة قبل أول عملية نسخ.",
   "settings.providers.title": "مزودو الذكاء الاصطناعي",
   "settings.providers.summaryProvider": "مزود التلخيص",
   "settings.providers.chatProvider": "مزود الدردشة",

@@ -74,6 +74,9 @@ export const pt_br = {
   "settings.version.title": "Informações da versão",
   "settings.video.title": "Download de vídeo",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Modelo de transcrição",
+  "settings.stt.modelDescription":
+    "Usado para transcrição local. Modelos ainda não baixados são obtidos antes da primeira transcrição.",
   "settings.providers.title": "Provedores de IA",
   "settings.providers.summaryProvider": "Provedor de resumo",
   "settings.providers.chatProvider": "Provedor de chat",

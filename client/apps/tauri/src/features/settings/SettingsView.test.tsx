@@ -514,6 +514,29 @@ describe("SettingsView", () => {
     });
   });
 
+  it("persists the transcription model picked in the speech settings", async () => {
+    const onSttModelChange = vi.fn();
+
+    render(
+      <SettingsView
+        settings={settings}
+        sttModelId="parakeet-tdt-0.6b-v3"
+        onSttModelChange={onSttModelChange}
+      />,
+    );
+
+    openSettingsTab("Speech");
+    fireEvent.keyDown(
+      screen.getByRole("combobox", { name: "Transcription model" }),
+      { key: "Enter", code: "Enter" },
+    );
+    fireEvent.click(
+      await screen.findByRole("option", { name: /Whisper Small/ }),
+    );
+
+    expect(onSttModelChange).toHaveBeenCalledWith("whisper-small");
+  });
+
   it("changes the Qwen3-TTS model and language from settings", () => {
     const onTtsSettingsChange = vi.fn();
 

@@ -74,6 +74,9 @@ export const uk_ua = {
   "settings.version.title": "Інформація про версію",
   "settings.video.title": "Завантаження відео",
   "settings.stt.title": "STT",
+  "settings.stt.model": "Модель транскрипції",
+  "settings.stt.modelDescription":
+    "Використовується для локальної транскрипції. Ще не завантажені моделі завантажуються перед першою транскрипцією.",
   "settings.providers.title": "Постачальники ШІ",
   "settings.providers.summaryProvider": "Постачальник резюме",
   "settings.providers.chatProvider": "Постачальник чату",
