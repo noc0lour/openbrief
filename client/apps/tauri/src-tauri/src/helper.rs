@@ -204,10 +204,20 @@ pub async fn run_helper_command<R: Runtime>(
         .map_err(|error| format!("helper_command_serialize_failed:{error}"))?;
     let should_log_stt = request.command == helper_sidecar::HelperCommandName::TranscribeAudio;
     if should_log_stt {
+        let model_path = request
+            .payload
+            .get("modelPath")
+            .and_then(Value::as_str)
+            .unwrap_or_default();
         log::info!(
             target: "openbrief::stt",
-            "before running stt; job_id={}; command=transcribe_audio",
+            "before running stt; job_id={}; command=transcribe_audio; engine=whisper; model_id={}; model_file={}",
             request.job_id.as_deref().unwrap_or("unknown"),
+            crate::stt_models::whisper_model_id_for_path(model_path).unwrap_or("unknown"),
+            Path::new(model_path)
+                .file_name()
+                .and_then(|name| name.to_str())
+                .unwrap_or("unknown"),
         );
     }
     let mut sidecar = app

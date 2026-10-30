@@ -286,6 +286,16 @@ fn model_by_id_with_availability(
         .ok_or_else(|| "stt_model_unknown".to_string())
 }
 
+/// Catalog id of the Whisper model stored at `model_path`, matched by file
+/// name so absolute and library-relative paths resolve the same way.
+pub(crate) fn whisper_model_id_for_path(model_path: &str) -> Option<&'static str> {
+    let file_name = Path::new(model_path).file_name()?.to_str()?;
+    WHISPER_MODELS
+        .iter()
+        .find(|model| model.file_name == file_name)
+        .map(|model| model.id)
+}
+
 fn models_dir_for_app<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf, String> {
     crate::workspace::models_dir_for_app(app)
 }
@@ -584,5 +594,18 @@ mod tests {
         ));
         fs::create_dir_all(&path).unwrap();
         path
+    }
+
+    #[test]
+    fn resolves_whisper_model_ids_from_model_paths() {
+        assert_eq!(
+            whisper_model_id_for_path("/models/ggml-large-v3-turbo-q5_0.bin"),
+            Some("whisper-large-v3-turbo-q5")
+        );
+        assert_eq!(
+            whisper_model_id_for_path("models/ggml-small.bin"),
+            Some("whisper-small")
+        );
+        assert_eq!(whisper_model_id_for_path("models/custom.bin"), None);
     }
 }
