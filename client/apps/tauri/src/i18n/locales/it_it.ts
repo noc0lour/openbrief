@@ -380,6 +380,7 @@ export const it_it = {
   "workbench.chat.empty": "Fai una domanda utilizzando il contesto del riepilogo o della trascrizione.",
   "workbench.chat.sending": "AI sta scrivendo una risposta...",
   "workbench.chat.failed": "La chat non è riuscita",
+  "workbench.chat.retry": "Riprova",
   "workbench.chat.question": "Domanda di chat",
   "workbench.chat.newChat": "Nuova chiacchierata",
   "workbench.chat.copyMessage": "Copia messaggio",

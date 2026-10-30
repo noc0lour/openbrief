@@ -380,6 +380,7 @@ export const ar_ma = {
   "workbench.chat.empty": "اطرح سؤالاً باستخدام سياق الملخص أو النص.",
   "workbench.chat.sending": "الذكاء الاصطناعي يكتب الرد...",
   "workbench.chat.failed": "فشلت الدردشة",
+  "workbench.chat.retry": "إعادة المحاولة",
   "workbench.chat.question": "سؤال الدردشة",
   "workbench.chat.newChat": "دردشة جديدة",
   "workbench.chat.copyMessage": "انسخ الرسالة",

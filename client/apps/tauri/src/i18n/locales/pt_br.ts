@@ -380,6 +380,7 @@ export const pt_br = {
   "workbench.chat.empty": "Faça uma pergunta usando o contexto de resumo ou transcrição.",
   "workbench.chat.sending": "AI está escrevendo uma resposta...",
   "workbench.chat.failed": "Falha no bate-papo",
+  "workbench.chat.retry": "Tentar novamente",
   "workbench.chat.question": "Pergunta de bate-papo",
   "workbench.chat.newChat": "Novo bate-papo",
   "workbench.chat.copyMessage": "Copiar mensagem",

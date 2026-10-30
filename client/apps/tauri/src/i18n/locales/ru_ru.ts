@@ -380,6 +380,7 @@ export const ru_ru = {
   "workbench.chat.empty": "Задайте вопрос, используя контекст краткого изложения или стенограммы.",
   "workbench.chat.sending": "ИИ пишет ответ...",
   "workbench.chat.failed": "Чат не удался",
+  "workbench.chat.retry": "Повторить",
   "workbench.chat.question": "Вопрос в чате",
   "workbench.chat.newChat": "Новый чат",
   "workbench.chat.copyMessage": "Копировать сообщение",

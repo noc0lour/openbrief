@@ -385,6 +385,7 @@ export const zh_cn = {
   "workbench.chat.empty": "使用摘要或文字记录上下文提出问题。",
   "workbench.chat.sending": "AI 正在撰写回复...",
   "workbench.chat.failed": "聊天失败",
+  "workbench.chat.retry": "重试",
   "workbench.chat.question": "聊天问题",
   "workbench.chat.newChat": "新聊天",
   "workbench.chat.copyMessage": "复制消息",

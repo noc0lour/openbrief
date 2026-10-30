@@ -380,6 +380,7 @@ export const ko_kr = {
   "workbench.chat.empty": "요약 또는 성적 증명서 컨텍스트를 사용하여 질문하세요.",
   "workbench.chat.sending": "AI가 답글을 쓰고 있다...",
   "workbench.chat.failed": "채팅 실패",
+  "workbench.chat.retry": "다시 시도",
   "workbench.chat.question": "채팅 질문",
   "workbench.chat.newChat": "새 채팅",
   "workbench.chat.copyMessage": "메시지 복사",
