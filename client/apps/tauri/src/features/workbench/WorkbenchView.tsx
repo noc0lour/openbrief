@@ -1040,7 +1040,7 @@ export function WorkbenchView({
                 <Button
                   type="button"
                   variant="outline"
-                  className="min-w-0 flex-1"
+                  className="flex-1"
                   disabled={isExtractingTranscript || isTranscribing}
                   onClick={() => void runAction(onExtractTranscript)}
                 >
@@ -3631,8 +3631,9 @@ function TranscriptionModelDialog({
         <Button
           type="button"
           variant="outline"
-          className="max-w-[12rem] shrink-0 justify-start gap-2 px-2.5 text-left"
+          className="min-w-0 max-w-[12rem] justify-start gap-2 px-2.5 text-left"
           disabled={disabled}
+          title={modelName}
           aria-label={`${label}: ${modelName}`}
         >
           <Cpu className="h-4 w-4 shrink-0" aria-hidden="true" />
